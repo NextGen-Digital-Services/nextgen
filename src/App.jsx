@@ -1,13 +1,17 @@
 import { useEffect } from "react"
+import { Routes, Route, useLocation } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 import Lenis from "lenis"
 import Navbar from "./components/Navbar"
-import Hero from "./components/Hero"
-import About from "./components/About"
-import Services from "./components/Services"
-import Portfolio from "./components/Portfolio"
-import Contact from "./components/Contact"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Services from "./pages/Services"
+import Contact from "./pages/Contact"
 
 function App() {
+  const location = useLocation()
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -28,14 +32,18 @@ function App() {
   }, [])
 
   return (
-    <>
-    <Navbar/>
-    <Hero/>
-    <About/>
-    <Services/>
-    <Portfolio/>
-    <Contact/>
-    </>
+    <div className="app-container">
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
+      <Footer />
+    </div>
   )
 }
 
