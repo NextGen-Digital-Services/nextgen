@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import Lenis from "lenis"
@@ -9,9 +9,11 @@ import About from "./pages/About"
 import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import FloatingActions from "./components/FloatingActions"
+import IntroScreen from "./components/IntroScreen"
 
 function App() {
   const location = useLocation()
+  const [introComplete, setIntroComplete] = useState(false)
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <div className="app-container">
+      {!introComplete && <IntroScreen onComplete={() => setIntroComplete(true)} />}
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

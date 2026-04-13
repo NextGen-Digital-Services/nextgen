@@ -38,7 +38,7 @@ const Navbar = () => {
       >
         <Link to="/" className="logo-container">
           <div className="logo-wrapper">
-            {logo && <img src={logo} alt="NextGen Logo" />}
+            {logo && <img src={logo} alt="NextGen Logo" loading="lazy" />}
           </div>
           <span className="logo-text">NextGen Digital Services</span>
         </Link>
