@@ -54,7 +54,6 @@ const Footer = () => {
         <div className="footer-block">
           <h4>Contact Info</h4>
           <div className="footer-links">
-            <a href="tel:+919818528815" style={{ color: "#A0A0A0" }}>+91 9818528815</a>
             <a href="mailto:nextgendigitalservices2026@gmail.com" style={{ color: "#A0A0A0", fontSize: "0.85rem" }}>
               nextgendigitalservices2026@gmail.com
             </a>

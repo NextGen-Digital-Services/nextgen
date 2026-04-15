@@ -25,7 +25,19 @@ const servicesData = [
     title: "Graphic Designing",
     icon: "🎨",
     description: "Strategic visual identity spanning logos, brand guidelines, and collateral, crafted with uncompromising aesthetic logic and clean layouts."
+  },
+  {
+  title: "SEO Optimization",
+  icon: "🔍",
+  description: "Improve your website ranking on search engines with advanced SEO strategies and performance optimization."
+  },
+
+  { 
+  title: "Paid Advertising",
+  icon: "📢",
+  description: "Run high-converting ad campaigns across Google and social platforms to drive targeted traffic and sales."
   }
+  
 ];
 
 const FolderServices = React.memo(() => {
