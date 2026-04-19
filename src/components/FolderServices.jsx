@@ -12,9 +12,9 @@ const servicesData = [
     description: "Scale your brand with data-driven paid advertising and organic search strategies optimized for measurable ROI and rapid market penetration."
   },
   {
-    title: "Website Development",
-    icon: "💻",
-    description: "Custom-coded, lightning-fast web applications engineered with robust architecture to convert traffic and dominate your niche."
+  title: "Web & App Development",
+  icon: "🧑‍💻",
+  description: "Custom-built web and mobile solutions engineered for speed, scalability, and seamless user experience to accelerate your digital growth."
   },
   {
     title: "Video Editing",
