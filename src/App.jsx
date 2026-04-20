@@ -10,6 +10,7 @@ import Services from "./pages/Services"
 import Contact from "./pages/Contact"
 import FloatingActions from "./components/FloatingActions"
 import IntroScreen from "./components/IntroScreen"
+import CursorSpotlight from "./components/CursorSpotlight"
 
 function App() {
   const location = useLocation()
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className="app-container">
       {!introComplete && <IntroScreen onComplete={() => setIntroComplete(true)} />}
+      <CursorSpotlight />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

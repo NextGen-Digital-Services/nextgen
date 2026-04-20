@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState, useCallback } from "react"
+import ServiceModal from "../components/ServiceModal"
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -21,6 +22,7 @@ const serviceList = [
 const Services = () => {
 
   const [selectedService, setSelectedService] = useState(null)
+  const handleClose = useCallback(() => setSelectedService(null), [])
 
   return (
     <motion.div
@@ -54,36 +56,12 @@ const Services = () => {
 
       </div>
 
-      {/* 👇 POPUP FORM */}
-      {selectedService && (
-        <div className="popup-overlay">
-          <div className="popup-form">
-            <h3>{selectedService}</h3>
-
-            <input type="text" placeholder="Your Name" id="name" />
-            <input type="email" placeholder="Your Email" id="email" />
-            <input type="tel" placeholder="Your Phone" id="phone" />
-
-            <button
-              onClick={() => {
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const phone = document.getElementById("phone").value;
-
-                const message = `Hello, I am interested in ${selectedService}%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}`;
-
-                window.open(`https://wa.me/91XXXXXXXXXX?text=${message}`, "_blank");
-              }}
-            >
-              Submit
-            </button>
-
-            <button onClick={() => setSelectedService(null)}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      {/* 👇 ANIMATED POPUP MODAL */}
+      <ServiceModal
+        isOpen={!!selectedService}
+        onClose={handleClose}
+        serviceName={selectedService || ""}
+      />
 
     </motion.div>
   )

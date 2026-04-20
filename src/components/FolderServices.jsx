@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -43,6 +43,14 @@ const servicesData = [
 const FolderServices = React.memo(() => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <div className="folder-services-container" ref={containerRef}>
@@ -88,18 +96,23 @@ const FolderServices = React.memo(() => {
       >
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={30}
+          spaceBetween={24}
           slidesPerView={1}
           loop={true}
-          speed={500}
-          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          speed={isMobile ? 800 : 4000} // Continuous slow scroll speed on desktop
+          autoplay={
+            isMobile
+              ? false
+              : { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }
+          }
           grabCursor={true}
+          cssMode={isMobile}
           breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            0: { slidesPerView: 1, spaceBetween: 16 },
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
           }}
-          className="services-swiper"
+          className={`services-swiper ${!isMobile ? "infinite-swiper" : ""}`}
         >
           {servicesData.map((service, index) => (
             <SwiperSlide key={index}>
