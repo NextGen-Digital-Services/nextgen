@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Link } from "react-router-dom"
 import Stats from "../components/Stats"
-import FolderServices from "../components/FolderServices"
+import ServiceFolder from "../components/ServiceFolder"
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -10,6 +10,7 @@ const pageVariants = {
 }
 
 const Home = () => {
+
   // Cinematic scroll parallax hooks (lightweight calculation via Framer loop)
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 800], [0, 150]);
@@ -73,7 +74,7 @@ const Home = () => {
 
       {/* 2. Services Section */}
       <section className="section-grey relative-bg" style={{ padding: '100px 5%' }}>
-        <div className="container" style={{ padding: '0' }}>
+        <div className="container" style={{ padding: '0', maxWidth: '100%', overflow: 'hidden' }}>
           <motion.div 
             className="section-header"
             initial={{ opacity: 0, y: 30 }}
@@ -84,7 +85,7 @@ const Home = () => {
             <h4>Our Services</h4>
             <h2>What Solutions We Provide</h2>
           </motion.div>
-          <FolderServices />
+          <ServiceFolder />
         </div>
       </section>
 
