@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* LEFT: Logo */}
-      <motion.div 
+      <motion.div
         className="logo-container"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="logo-wrapper">
             {logo && <img src={logo} alt="NextGen Logo" loading="lazy" />}
           </div>
-          <span className="logo-text">NextGen Digital Services</span>
+          <span className="logo-text">NzxtGen Digital Services</span>
         </Link>
       </motion.div>
 
@@ -55,8 +55,8 @@ const Navbar = () => {
 
       {/* RIGHT: Contact CTA & Theme Toggle */}
       <div className="nav-action">
-        <button 
-          className="theme-toggle-btn" 
+        <button
+          className="theme-toggle-btn"
           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           aria-label="Toggle Theme"
         >

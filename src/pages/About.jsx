@@ -92,7 +92,7 @@ const About = () => {
             <h4>Our Story</h4>
             <h2>Engineering Digital Excellence Since Day One</h2>
             <p>
-              NextGen Digital Services was founded on the principle that digital growth shouldn't be complex.
+              NzxtGen Digital Services was founded on the principle that digital growth shouldn't be complex.
               We blend strategic logic with striking visuals to engineer assets that actually perform.
               In the age of noise, clarity and premium presentation form the ultimate advantage.
             </p>
